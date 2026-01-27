@@ -10,3 +10,4 @@ The following plugins are used:
 
 - [UltiSnips](https://github.com/SirVer/ultisnips) – snippet engine
 - [Jellybeans](https://github.com/nanotech/jellybeans.vim) – Vim color scheme
+- [vim-commentary](https://github.com/tpope/vim-commentary) - comment stuff out

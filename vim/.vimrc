@@ -18,66 +18,30 @@ inoremap <F3> <ESC> :w <CR> :make <CR>
  
 "noremap <F5> <ESC> :w <CR> :!pytest %<.py <CR>
 "inoremap <F5> <ESC> :w <CR> :!pytest %<.py <CR>
- 
-"noremap <F6> <ESC> :!./%< < inp<CR>
-"inoremap <F6> <ESC> :!./%< < inp<CR>
- 
-noremap <F7> <ESC> :w !python3 <CR>
- 
-"noremap <F7> <ESC> :w <CR> :!avr-gcc -g -std=c99 -O1 -mmcu=atmega328p -o out.elf example.c<CR>
-"noremap <F6> <ESC> :w <CR> :!avrdude -v -patmega328p -P /dev/cu.usbmodem14* -c arduino -U flash:w:"out.elf"<CR>
-"noremap <F5> <ESC> :w <CR> :!avrdude -v -patmega328p -P /dev/cu.usbmodemHID* -c arduino -U flash:w:"out.elf"<CR>
- 
- 
-noremap <F8> <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -DONPC -O2 -o %< % && ./%< < inp<CR>
-inoremap <F8> <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -DONPC -O2 -o "%<" "%" && "./%<" < inp<CR>
- 
-" -pthread
- 
-noremap <F9> <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -DONPC -O2 -o %< % && ./%< <CR>
-inoremap <F9> <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -DONPC -O2 -o %< % && ./%< <CR>
- 
-"noremap <F10> <ESC> :w <CR> :!clang++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -DONPC -O2 -o %< % && ./%< <CR>
-"inoremap <F10> <ESC> :w <CR> :!clang++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -DONPC -O2 -o %< % && ./%< <CR>
- 
- 
-noremap <F10> <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -DONPC -O2 -o %< % && ./%< < inp<CR>
-inoremap <F10> <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -DONPC -O2 -o "%<" "%" && "./%<" < inp<CR>
- 
- 
- 
-"inoremap {<CR> {<CR>}<ESC>k$A<CR>
- 
+
+noremap <F8> :w <CR> :!g++ -o %:r % && cat input.txt 2> /dev/null \| ./%:r <CR>
+inoremap <F8> :w <CR> :!g++ -o %:r % && cat input.txt 2> /dev/null \| ./%:r <CR>
+
+noremap <F10> <ESC> :w <CR> :!g++ -std=c++17 -DONPC -O2 -o %< % && ./%< < input.txt<CR>
+inoremap <F10> <ESC> :w <CR>  :!g++ -std=c++17 -DONPC -O2 -o %< % && ./%< < input.txt<CR>
+
 noremap <TAB> %
  
- 
 call plug#begin('~/.vim/plugged')
- 
- 
-Plug 'lervag/vimtex'
-let g:tex_flavor='latex'
-let g:vimtex_view_method='general'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg' 
  
 Plug 'sirver/ultisnips'
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"let g:UltiSnipsEditSplit="vertical"
- 
+
 Plug 'honza/vim-snippets'
  
+Plug 'tpope/vim-commentary'
+
 "Plug 'gilligan/vim-lldb'
  
 call plug#end()
 ":PlugInstall
- 
- 
- 
  
 let c_syntax_for_h=""
  
@@ -105,8 +69,17 @@ command! Kek source ~/.vimrc
 "autocmd FocusLost * redraw!
 "command! LLDB :!clang++ -fsanitize=address -std=c++17 -O0 -g -o "%<" "%" && lldb %<
 command! Gdb !g++ -std=c++17 -O0 -g -o %< 
- 
- 
+
+
+set relativenumber
+set hls
+set is
+set cb=unnamed
+set gfn=Fixedsys:h10
+set ts=4
+set linespace=5
+set sw=4
+set si 
 set autoindent
 set autoread
 set cin
@@ -141,5 +114,4 @@ filetype indent on
 let g:tex_flavor='latex'
 set sw=4
 set iskeyword+=:
-"g:Tex_CompileRule_pdf
-"g:Tex_CompileRule_dvi = 'latex --interaction=nonstopmode $*'
+
