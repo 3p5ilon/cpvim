@@ -54,6 +54,7 @@ Plug 'sirver/ultisnips'          " Snippet engine
 Plug 'honza/vim-snippets'        " Snippet collections
 Plug 'tpope/vim-commentary'      " Comment/uncomment with gc
 Plug 'tpope/vim-surround'        " Change surrounding brackets/quotes
+Plug 'jiangmiao/auto-pairs'      " Auto-close brackets/quotes
 call plug#end()
 
 let g:UltiSnipsExpandTrigger = '<tab>'
