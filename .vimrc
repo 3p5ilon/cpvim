@@ -150,15 +150,15 @@ if has('persistent_undo')
 endif
 
 " GUI for MacVim
-if has("gui_macvim")
-    set guifont=Menlo\ Regular:h15
-    set lines=35
-    set columns=80
-    set linespace=3
-    set guioptions-=T
-
-    noremap <Leader>1 :set lines=25 columns=60<CR>
-    noremap <Leader>2 :set lines=35 columns=80<CR>
-    noremap <Leader>3 :set lines=50 columns=120<CR>
-    noremap <Leader>f :set fullscreen!<CR>
-endif
+"if has("gui_macvim")
+"    set guifont=Menlo\ Regular:h15
+"    set lines=35
+"    set columns=80
+"    set linespace=3
+"    set guioptions-=T
+"
+"    noremap <Leader>1 :set lines=25 columns=60<CR>
+"    noremap <Leader>2 :set lines=35 columns=80<CR>
+"    noremap <Leader>3 :set lines=50 columns=120<CR>
+"    noremap <Leader>f :set fullscreen!<CR>
+"endif
